@@ -6,11 +6,16 @@ async function apiRequest() {
         const response = await fetch(`/api/${kickName}`)
         const data = await response.json()
 
-        console.log(data)
-        document.querySelector('#name').innerText = ' ' + data.name
-        document.querySelector('#korean').innerText = ' ' + data.koreanName
-        document.querySelector('#instructions').innerText = ' ' + data.instruction
-        document.querySelector('#tips').innerText = ' ' + data.tips
+        if(data.error === true) {
+            alert('Invalid technique name!')
+        } else {
+            console.log(data)
+            document.querySelector('#name').innerText = ' ' + data.name
+            document.querySelector('#korean').innerText = ' ' + data.koreanName
+            document.querySelector('#instructions').innerText = ' ' + data.instruction
+            document.querySelector('#tips').innerText = ' ' + data.tips
+        }
+
     } catch (error) {
         console.log(error)
     }

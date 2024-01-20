@@ -13,7 +13,9 @@ app.get('/api/:kickName', (req,res)=>{
     if(kickList[kicksName]) {
         res.json(kickList[kicksName])
     } else {
-        res.json(kickList['front kick'])
+        res.json({
+            error : true
+        })
     }
 })
 
