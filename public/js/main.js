@@ -10,10 +10,11 @@ async function apiRequest() {
             alert('Invalid technique name!')
         } else {
             console.log(data)
-            document.querySelector('#name').innerText = ' ' + data.name
-            document.querySelector('#korean').innerText = ' ' + data.koreanName
-            document.querySelector('#instructions').innerText = ' ' + data.instruction
-            document.querySelector('#tips').innerText = ' ' + data.tips
+            document.querySelector('#name').innerText = ' ' + data.foundKick.name
+            document.querySelector('#korean').innerText = ' ' + data.foundKick.koreanName
+            document.querySelector('#instructions').innerText = ' ' + data.foundKick.instruction
+            document.querySelector('#tips').innerText = ' ' + data.foundKick.tips
+            document.querySelector('#random').innerText = "Check other techniques like" + ' ' + data.randomKick + ' ' + "as well!"
         }
 
     } catch (error) {

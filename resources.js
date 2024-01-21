@@ -21,17 +21,33 @@ const sideKick = new Kick('Side Kick', 'Yeop Chagi', 'Rotate your body until you
 const spinningHookKick = new Kick('Spinning Hook Kick', 'Dwi Huryeo Chagi', 'You need to use your rear leg for this kick. To master this kick, you need to know how to perform a hook kick well. Turn your body right until you are facing directly away from the target. During this movement, pivot on your left foot. Continue turning to the right and look over your shoulder to find your target. Snap the kicking foot as you approach the target to land a kick with the heel or with the sole. Sweep through the target and land your kicking leg back to the original position', 'Try to sweep the leg back in a big arc. This is easier to counter but easier to perform.')
 
 const kickList = {
-    'axe kick' : axeKick,
-    'back kick' : backKick,
-    'double roundhouse kick' : doubleRoundhouseKick,
-    'front kick' : frontKick,
-    'hook kick' : hookKick,
-    'flying back kick' : flyingBackKick,
-    'flying side kick' : flyingSideKick,
-    'jumping front kick' : jumpingFrontKick,
-    'push kick' : pushKick,
-    'roundhouse kick' : roundHouseKick,
-    'side kick' : sideKick,
-    'spinning hook kick' : spinningHookKick
+    'axe kick': axeKick,
+    'back kick': backKick,
+    'double roundhouse kick': doubleRoundhouseKick,
+    'front kick': frontKick,
+    'hook kick': hookKick,
+    'flying back kick': flyingBackKick,
+    'flying side kick': flyingSideKick,
+    'jumping front kick': jumpingFrontKick,
+    'push kick': pushKick,
+    'roundhouse kick': roundHouseKick,
+    'side kick': sideKick,
+    'spinning hook kick': spinningHookKick
 }
-module.exports = {kickList}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
+
+function getRandomKick() {
+    const kickArray = Object.keys(kickList)
+    const randomKick = kickArray[Math.floor(Math.random() * kickArray.length)];
+    return randomKick
+}
+
+module.exports = {kickList, getRandomKick}
